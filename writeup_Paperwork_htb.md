@@ -1,4 +1,4 @@
-### Write up Paperwork on thb.###
+### Write up Paperwork on HTB.
 ```bash
         nmap -sCV -p22,80,1515 -oN target 10.129.114.139
 ```
