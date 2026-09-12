@@ -55,7 +55,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 + andiamo a vedere di che si tratta.
 + scopriamo che la funzione webcallback_iframe() non era implementata, bene, sfruttiamo la situazione e iniziamo a pensare come implementarla.
 + essendo una calback dovra eseguire codice `php` se implementiamo la funzione mancante.
-+ dopo una ricerca troviamo un CVE nella pagina  `https://www.exploit-db.com/exploits/52681` siamo dentro come utente `asterisk`.
++ dopo una ricerca troviamo un exploit adatto alla nostra situazione nella pagina `https://www.exploit-db.com/exploits/52681` siamo dentro come utente `asterisk`.
 
 # Privilege Escalation # 
 # Hack The Box - Connected: Privilege Escalation Writeup
