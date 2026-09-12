@@ -2,7 +2,7 @@
 # Writeup Connect machine htb.
 + Initial scan port
 # Nmap 7.98 scan initiated Sat Sep 12 15:42:06 2026 as: nmap -sCV -p22,80,443 -oN target 10.129.131.69
-Nmap scan report for 10.129.131.69
+```Nmap scan report for 10.129.131.69
 Host is up (0.089s latency).
 
 PORT    STATE SERVICE   VERSION
@@ -24,7 +24,7 @@ PORT    STATE SERVICE   VERSION
 
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 # Nmap done at Sat Sep 12 15:44:20 2026 -- 1 IP address (1 host up) scanned in 134.76 seconds
-
+```
 # Web scan `gobuster` tool.
 
 ```/.html.js            [33m (Status: 403)[0m [Size: 210]
