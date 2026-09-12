@@ -27,7 +27,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 
 # Web scan `gobuster` tool.
 
-/.html.js            [33m (Status: 403)[0m [Size: 210]
+```/.html.js            [33m (Status: 403)[0m [Size: 210]
 /index.php           [36m (Status: 302)[0m [Size: 0][34m [--> /admin][0m
 /.txt                [33m (Status: 403)[0m [Size: 206]
 /admin               [36m (Status: 301)[0m [Size: 235][34m [--> http://connected.htb/admin/][0m
@@ -49,7 +49,8 @@ Service detection performed. Please report any incorrect results at https://nmap
 /.php                [33m (Status: 403)[0m [Size: 206]
 /.html.js            [33m (Status: 403)[0m [Size: 210]
 /wcb.php             [31m (Status: 500)[0m [Size: 87832]
-# Ricerca vuknerabilita
+```
+# Ricerca vulnerabilità
 + Guardando il report di `gobuster` possiamo  vedere che abbiamo un 500 internal error `(/wcb.php ~> Status: 500)`, bene
 + andiamo a vedere di che si tratta.
 + scopriamo che la funzione webcallback_iframe() non era implementata, bene, sfruttiamo la situazione e iniziamo a pensare come implementarla.
