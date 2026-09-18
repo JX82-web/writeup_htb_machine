@@ -106,7 +106,7 @@ scott
 ---------------------------------------------------
 ```
 
-# Cration ssh key file
+# Creation ssh key file
 
 ```bash
   
