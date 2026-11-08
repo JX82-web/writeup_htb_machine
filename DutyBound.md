@@ -1,10 +1,10 @@
-
+---
 ## WriteUp_DotyBound (HTB) 
-
+---
 - [X]  **Discovered port and service with nmap**
 
 <details>
-<summary>🔵 nmap -p22,80,443 -sCV  `target` </summary>
+<summary>🔵 nmap Result (click to expanded) </summary>
 
 ```lua
 
