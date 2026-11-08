@@ -46,7 +46,7 @@ Nmap done at Sat Nov  7 17:31:20 2026 -- 1 IP address (1 host up) scanned in 22.
 
 <summary> 🟡 Result Gobuster (Click to expand) </summary>
 
-```sh
+```lua
 
 health               (Status: 200) [Size: 16]
 browse               (Status: 200) [Size: 12721]
