@@ -1,10 +1,7 @@
----
-
 # WriteUp {#WriteUp}
 
 - [x] **DutyBound.htb**
-
----
+___
 - [X]  **Discovered port and service with `nmap`**
 
 <details>
