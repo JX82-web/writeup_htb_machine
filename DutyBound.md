@@ -1,4 +1,8 @@
-# WriteUp {#WriteUp}
+---
+
+# WriteUp DutyBound Guida Tutorial
+
+---
 
 - [x] **DutyBound.htb**
 ___
