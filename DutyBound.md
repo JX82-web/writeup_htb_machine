@@ -4,7 +4,7 @@
 - [X] **Discovered port and service with nmap**
 
 <details>
-<summary>🔵 nmap -p22,80,443 -sCV `http://airsnacks.htb` </summary>
+<summary>🔵 nmap -p22,80,443 -sCV  `http://airsnacks.htb` </summary>
 
 ```lua
 
