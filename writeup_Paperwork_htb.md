@@ -2,8 +2,10 @@
 ```bash
         nmap -sCV -p22,80,1515 -oN target 10.129.114.139
 ```
-# results:
-        `Nmap scan report for 10.129.114.139`
+# results nmap:
+
+```lua
+Nmap scan report for 10.129.114.139
 
 Host is up (0.079s latency).
 
@@ -26,6 +28,7 @@ PORT     STATE SERVICE        VERSION
 >***Fase 2 
 ### Exploitation paperwork
 ispezionando il codice dell'archivio scaricato `paperwork-archive-v1.02` o scoperto che soffre di una vulnerabilità Command Injection cosi mi sono scritto un `exloit.py` 
+```
 
 ```python
 
