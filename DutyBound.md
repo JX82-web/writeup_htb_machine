@@ -44,7 +44,7 @@ Nmap done at Sat Nov  7 17:31:20 2026 -- 1 IP address (1 host up) scanned in 22.
 
 <details>
 
-<summary> 🟡 Result Gobuster</summary>
+<summary> 🟡 Result Gobuster (Click to expand) </summary>
 
 ```sh
 
@@ -61,7 +61,7 @@ exit                 (Status: 405) [Size: 153]
 
 <details>
 
-<summary>⚠️ Exploit1 (Click to expand) ⚠️ </summary>
+<summary>⚠️ Exploit1 ⚠️ (Click to expand) </summary>
 
 ```python
 #!/usr/bin/exnv python3
@@ -156,7 +156,7 @@ else:
 </details>
 
 <details>
-    <summary>🔵root payload</summary>
+    <summary>🔵root payload (Click to expand) </summary>
 
 ```php
 
