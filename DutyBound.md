@@ -1,7 +1,7 @@
 ---
 ## WriteUp_DotyBound (HTB) 
 ---
-- [X]  **Discovered port and service with nmap**
+- [X]  **Discovered port and service with `nmap`**
 
 <details>
 <summary>🔵 nmap Result (click to expanded) </summary>
@@ -61,7 +61,7 @@ exit                 (Status: 405) [Size: 153]
 
 <details>
 
-<summary>⚠️ Exploits ⚠️</summary>
+<summary>⚠️ Exploit1 (Click to expand) ⚠️ </summary>
 
 ```python
 #!/usr/bin/exnv python3
@@ -99,7 +99,7 @@ tap("Return")
 
 <details>
 
-<summary> ⚠️Exploit 2⚠️</summary>
+<summary> ⚠️Exploit 2⚠️ (Cick to expand) </summary>
 
 ```python
 #!/usr/bin/env python3
@@ -143,7 +143,7 @@ else:
 
 <details>
 
-<summary> 🔴 Priv Escalation</summary>
+<summary> 🔴 Priv Escalation< (Click to expands) </summary>
 
  enumeration dopo una ricera dei file con i permessi di scrittura notiamo che il file /opt/vrs/ data/duty-rates.csv risulta scrivibile.
 : scriviamo un payload semplice all'interno di duty-rates.csv in modo che eval lo esegua
