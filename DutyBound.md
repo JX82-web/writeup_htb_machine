@@ -40,7 +40,7 @@ Nmap done at Sat Nov  7 17:31:20 2026 -- 1 IP address (1 host up) scanned in 22.
 
 </details><br>
 
-- [x] ==**Enumerazione web con `Gobuster`**==
+- [x] **Enumerazione web con `Gobuster`**
 
 <details>
 
