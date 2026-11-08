@@ -143,7 +143,7 @@ else:
 
 <details>
 
-<summary> 🔴 Priv Escalation< (Click to expands) </summary>
+<summary> 🔴 Priv Escalation (Click to expands) </summary>
 
  enumeration dopo una ricera dei file con i permessi di scrittura notiamo che il file /opt/vrs/ data/duty-rates.csv risulta scrivibile.
 : scriviamo un payload semplice all'interno di duty-rates.csv in modo che eval lo esegua
