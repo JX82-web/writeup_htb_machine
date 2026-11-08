@@ -1,5 +1,5 @@
 ---
-## WriteUp_DotyBound (HTB) 
+# WriteUp DotyBound (HTB) 
 ---
 - [X]  **Discovered port and service with `nmap`**
 
