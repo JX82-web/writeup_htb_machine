@@ -1,8 +1,11 @@
 
 # Writeup Connect machine htb.
 + Initial scan port
+
+```lua
+
 # Nmap 7.98 scan initiated Sat Sep 12 15:42:06 2026 as: nmap -sCV -p22,80,443 -oN target 10.129.131.69
-```Nmap scan report for 10.129.131.69
+#Nmap scan report for 10.129.131.69
 Host is up (0.089s latency).
 
 PORT    STATE SERVICE   VERSION
@@ -24,20 +27,11 @@ PORT    STATE SERVICE   VERSION
 
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 # Nmap done at Sat Sep 12 15:44:20 2026 -- 1 IP address (1 host up) scanned in 134.76 seconds
+
 ```
 # Web scan `gobuster` tool.
 
-```/.html.js            [33m (Status: 403)[0m [Size: 210]
-/index.php           [36m (Status: 302)[0m [Size: 0][34m [--> /admin][0m
-/.txt                [33m (Status: 403)[0m [Size: 206]
-/admin               [36m (Status: 301)[0m [Size: 235][34m [--> http://connected.htb/admin/][0m
-/.php                [33m (Status: 403)[0m [Size: 206]
-/robots.txt          [32m (Status: 200)[0m [Size: 361]
-/ucp                 [36m (Status: 301)[0m [Size: 233][34m [--> http://connected.htb/ucp/][0m
-/.txt                [33m (Status: 403)[0m [Size: 206]
-/.php                [33m (Status: 403)[0m [Size: 206]
-/.html.js            [33m (Status: 403)[0m [Size: 210]
-/wcb.php             [31m (Status: 500)[0m [Size: 87832]
+```js
 /.html.js            [33m (Status: 403)[0m [Size: 210]
 /index.php           [36m (Status: 302)[0m [Size: 0][34m [--> /admin][0m
 /.txt                [33m (Status: 403)[0m [Size: 206]
@@ -49,6 +43,18 @@ Service detection performed. Please report any incorrect results at https://nmap
 /.php                [33m (Status: 403)[0m [Size: 206]
 /.html.js            [33m (Status: 403)[0m [Size: 210]
 /wcb.php             [31m (Status: 500)[0m [Size: 87832]
+/.html.js            [33m (Status: 403)[0m [Size: 210]
+/index.php           [36m (Status: 302)[0m [Size: 0][34m [--> /admin][0m
+/.txt                [33m (Status: 403)[0m [Size: 206]
+/admin               [36m (Status: 301)[0m [Size: 235][34m [--> http://connected.htb/admin/][0m
+/.php                [33m (Status: 403)[0m [Size: 206]
+/robots.txt          [32m (Status: 200)[0m [Size: 361]
+/ucp                 [36m (Status: 301)[0m [Size: 233][34m [--> http://connected.htb/ucp/][0m
+/.txt                [33m (Status: 403)[0m [Size: 206]
+/.php                [33m (Status: 403)[0m [Size: 206]
+/.html.js            [33m (Status: 403)[0m [Size: 210]
+/wcb.php             [31m (Status: 500)[0m [Size: 87832]
+
 ```
 # Ricerca vulnerabilità
 + Guardando il report di `gobuster` possiamo  vedere che abbiamo un 500 internal error `(/wcb.php ~> Status: 500)`, bene
