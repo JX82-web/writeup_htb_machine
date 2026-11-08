@@ -2,7 +2,7 @@
 
 # WriteUp {#WriteUp}
 
-==DutyBound.htb==
+- [x] **DutyBound.htb**
 
 ---
 - [X]  **Discovered port and service with `nmap`**
