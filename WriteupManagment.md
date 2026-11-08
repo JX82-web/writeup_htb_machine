@@ -171,7 +171,7 @@ rdiff-backup --remote-schema sudo /usr/bin/rdiff-backup --server --restrict-path
 
 ```
 
-```js
+```go
 
 cd rootbak/
 owen@management:/tmp/rootbak$ ls
