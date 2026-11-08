@@ -1,10 +1,7 @@
-___
 
 ## WriteUp_DotyBound (HTB) {#WriteUp_DotyBound}
 
----
-
-- [X] ==**Discovered port and service with `nmap`**==
+- [X] ==**Discovered port and service with nmap**==
 
 <details>
 <summary>🔵`nmap -p22,80,443 -sCV http://airsnacks.htb` </summary>
