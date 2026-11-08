@@ -1,4 +1,4 @@
-# WriteUpManagment.htb
+# WriteUp Managment.htb
 ```bash
 # Nmap 7.98 scan initiated Thu Sep 17 18:01:49 2026 as: nmap -sC -sV -p22,80,443,1689,4444,37363,50389 -oN target 10.129.136.195
 Nmap scan report for management.htb (10.129.136.195)
